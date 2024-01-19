@@ -18,7 +18,6 @@ export async function requestFaucet(prevState: any, formData: FormData) {
       host: getFaucetHost(rawFormData.network as any),
       recipient: rawFormData.address as string,
     });
-    console.log(res);
     if (res.error) {
       throw new Error(res.error);
     }
@@ -30,7 +29,6 @@ export async function requestFaucet(prevState: any, formData: FormData) {
       success: `${totalSuiMinted} SUI minted to ${rawFormData.address}`,
     };
   } catch (error: any) {
-    console.log(error.message);
     return {
       error: error.message as string,
       success: String(),
